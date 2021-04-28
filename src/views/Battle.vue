@@ -34,6 +34,7 @@
           <v-sheet min-height="70vh" rounded="lg">
             <v-row class='justify-center'>
               <v-col cols='3' class='text-center mt-5'>
+                <h3 class='mt-5'>{{enemy.name}}</h3>
                 <v-img :src='enemy.image'>
                   <v-overlay absolute :value="!enemy.currentHealth" color="green">
                     <v-btn color="blue" @click="nextLevel">
@@ -157,7 +158,7 @@
     },
     computed: {
       enemy: function () {
-        return this.$store.state.enemies[this.$store.state.level];
+        return this.$store.state.enemies[this.$store.state.stage][this.$store.state.level];
       },
     }
   }
